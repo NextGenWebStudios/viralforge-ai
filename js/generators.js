@@ -1,35 +1,30 @@
-export function generateHooks(topic){
-    const hooks = [
-        `This ${topic} secret will shock you`,
-        `Nobody talks about this ${topic}`,
-        `The biggest ${topic} mistake`,
-        `You are using ${topic} wrong`,
-        `The truth about ${topic}`,
-        `Why ${topic} changed everything`,
-        `The hidden power of ${topic}`
-    ];
-    return hooks[Math.floor(Math.random()*hooks.length)];
-}
+function generateHooks(){
 
-export function generateScript(topic){
-    return `Short script for ${topic}:\n1. Hook\n2. Problem\n3. Solution\n4. Call to Action`;
-}
+const topic=document.getElementById("topic").value;
 
-export function generateIdea(){
-    const ideas = [
-        "AI tools you didn't know",
-        "Secrets of viral shorts",
-        "Hidden tricks for growth",
-        "Passive income ideas",
-        "Viral content secrets"
-    ];
-    return ideas[Math.floor(Math.random()*ideas.length)];
-}
+const hooks=[
 
-export function generateHashtags(topic){
-    return `#${topic.replace(/\s/g,'')} #Viral #AIShorts #Trending`;
-}
+`Nobody talks about ${topic} like this...`,
+`This ${topic} trick will shock you`,
+`The biggest mistake in ${topic}`,
+`Why ${topic} is secretly powerful`,
+`This ${topic} method changed everything`,
+`99% people fail at ${topic}`,
+`You won't believe this ${topic} hack`,
+`The dark truth about ${topic}`,
+`Stop doing this in ${topic}`,
+`This ${topic} strategy is underrated`
 
-export function generateCaption(topic){
-    return `🔥 ${topic} | Watch till the end! #ViralForgeAI`;
+];
+
+let result="";
+
+hooks.forEach(h=>{
+
+result+="<p>"+h+"</p>";
+
+});
+
+document.getElementById("result").innerHTML=result;
+
 }
