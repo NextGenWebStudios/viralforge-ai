@@ -1,46 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viral Hook Generator</title>
+
+<title>Hook Generator</title>
+
 <link rel="stylesheet" href="../css/style.css">
-<script type="module">
-import {generateHooks, generateScript, generateIdea, generateHashtags, generateCaption} from '../js/generators.js';
-import {checkLimit} from '../js/limiter.js';
-import {unlockShare} from '../js/shareUnlock.js';
 
-window.onload = ()=>{
-    const btn = document.getElementById('genBtn');
-    const out = document.getElementById('result');
-    btn.onclick = ()=>{
-        if(checkLimit()){
-            const topic = document.getElementById('topic').value || 'Viral Content';
-            out.value = generateHooks(topic); // change function per tool
-        }
-    }
-    document.getElementById('shareBtn').onclick = ()=>{ unlockShare(); }
-    document.getElementById('copyBtn').onclick = ()=>{
-        out.select();
-        navigator.clipboard.writeText(out.value);
-        alert("Copied to clipboard!");
-    }
-};
-</script>
+<script src="../js/generators.js"></script>
+
 </head>
-<body>
-<header class="navbar">
-    <div class="logo">ViralForge AI</div>
-    <a href="../dashboard.html">Back</a>
-</header>
 
-<h2>Viral Hook Generator</h2>
+<body>
+
+<h1>Viral Hook Generator</h1>
+
 <input id="topic" placeholder="Enter topic">
-<div class="tool-buttons">
-    <button id="genBtn">Generate</button>
-    <button id="copyBtn">Copy</button>
-    <button id="shareBtn">Unlock via Share</button>
-</div>
-<textarea id="result" readonly></textarea>
+
+<button onclick="generateHooks()">Generate Hooks</button>
+
+<div id="result"></div>
+
 </body>
+
 </html>
